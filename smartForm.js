@@ -112,6 +112,8 @@ function getQ3Values(){
 $('#start').click(function(){
   $('#welcome').hide();
   $('#q1').show();
+  // $('#thanks').show();
+
   userData.currentQuestion= "#q1";
   // localStorage.setItem('userData',JSON.stringify(userData));
 });
@@ -142,7 +144,26 @@ function varification(name, email){
 }
 function showAnswer(){
   var a = document.getElementById('ans');
-  a.innerHTML='hello';
+  a.innerHTML= '';
+  a.innerHTML += '<div class="well">' + '<h4>' + 'Name: '  + userData.name+ '</h4>'
+                   + '<h4>' + 'Email: '  + userData.email+ '</h4>'
+                   + '<h4>' + 'Likings About HTML:'    +  '</h4>'
+                   + '<li>' + userData.html.Likes + '</li>'
+                    + '<h4>' + 'Disikings About HTML:'    +  '</h4>'
+                   + '<li>' + userData.html.disLikes + '</li>'
+                   + '<h4>' + 'Likings About CSS:'    +  '</h4>'
+                   + '<li>' + userData.css.Likes + '</li>'
+                    + '<h4>' + 'Disikings About CSS:'    +  '</h4>'
+                   + '<li>' + userData.css.disLikes + '</li>'
+                   + '<h4>' + 'Likings About JAVA:'    +  '</h4>'
+                   + '<li>' + userData.js.Likes + '</li>'
+                    + '<h4>' + 'Disikings About JAVA:'    +  '</h4>'
+                   + '<li>' + userData.js.disLikes + '</li>'
+                   + '<h4>' + 'Front-end Skills:'    +  '</h4>'
+                  + '<li>' + 'HTML:' + userData.strength.html + '</li>'
+                    + '<li>' + 'CSS:' + userData.strength.css + '</li>'
+                      + '<li>' + 'JS:' + userData.strength.js + '</li>'
+                   + '</div>';
 }
 
  $('#bhtml').click(function(){
