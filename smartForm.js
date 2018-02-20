@@ -173,21 +173,22 @@ $('#htmlPrev').click(function(){
     $('#q2a').hide();
     userData.currentQuestion= "#q2";
    });
+
   $('#htmlNext').click(function(){
-    if (!checkStoreQ2aValues()) {
-        markQ2a();
+    if(!checkStoreQ2aValues()){
         userData.flaghtml=true;
+        markQ2a();
+        if (checkAllQ2()) {
+          $('#q3').show();
+          $('#q2a').hide();
+          userData.currentQuestion= "#q3";
         }
-    if (checkAllQ2()) {
-      $('#q3').show();
-      $('#q2a').hide();
-      userData.currentQuestion= "#q3";
-    }
-    else {
-      $('#q2').show();
-      $('#q2a').hide();
-      userData.currentQuestion= "#q2";
-  }
+        else{
+            $('#q2').show();
+            $('#q2a').hide();
+            userData.currentQuestion= "#q2";
+          }
+      }
  });
 $('#cssPrev').click(function(){
      $('#q2').show();
@@ -198,17 +199,17 @@ $('#cssNext').click(function(){
      if (!checkStoreQ2bValues() ) {
           markQ2b();
           userData.flagcss=true;
-         }
-     if (checkAllQ2()) {
-       $('#q3').show();
-       $('#q2b').hide();
-       userData.currentQuestion= "#q3";
-     }
-     else {
-       $('#q2').show();
-       $('#q2b').hide();
-       userData.currentQuestion= "#q2";
-     }
+          if (checkAllQ2()) {
+            $('#q3').show();
+            $('#q2b').hide();
+            userData.currentQuestion= "#q3";
+          }
+          else {
+            $('#q2').show();
+            $('#q2b').hide();
+            userData.currentQuestion= "#q2";
+          }
+        }
   });
 $('#javaPrev').click(function(){
       $('#q2').show();
@@ -224,17 +225,17 @@ $('#javaNext').click(function(){
         if (!checkStoreQ2cValues() ) {
             markQ2c();
             userData.flagjava=true;
+            if (checkAllQ2()) {
+              $('#q3').show();
+              $('#q2c').hide();
+              userData.currentQuestion= "#q3";
             }
-        if (checkAllQ2()) {
-          $('#q3').show();
-          $('#q2c').hide();
-          userData.currentQuestion= "#q3";
-        }
-        else {
-          $('#q2').show();
-          $('#q2c').hide();
-          userData.currentQuestion= "#q2";
-        }
+            else {
+              $('#q2').show();
+              $('#q2c').hide();
+              userData.currentQuestion= "#q2";
+            }
+            }
      });
 $('#q3Prev').click(function(){
        $('#q2').show();
