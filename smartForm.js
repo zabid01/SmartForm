@@ -7,91 +7,71 @@ var userData = {
   css: {Likes:[], disLikes:[]},
   js: {Likes:[], disLikes:[]},
   strength: {css:'',html:'',js:'' },
+  flaghtml:'',
+  flagcss:'',
+  flagjava:'',
   currentQuestion: '#welcome'
 };
-
-function getQ2aValues(){
-
-	$(".likes1:checked").each(function() {
-		userData.html.Likes.push($(this).val());
-	});
-  console.log(userData.html.Likes);
-
-  $(".dislikes1:checked").each(function() {
-		userData.html.disLikes.push($(this).val());
-	});
-  console.log(userData.html.disLikes);
-  console.log(userData.html.Likes.length);
-  console.log(userData.html.Likes);
-
-	if(userData.html.Likes.length == 0){
-		alert("Please at least check one of the checkboxs");
-    return true;
-	}
-  if(userData.html.disLikes.length == 0){
-		alert("Please at least check one of the checkboxs");
-    return true;
-	}
+function emptyArray(){
+  userData = {
+    name:'',
+    email:'',
+    html: {Likes:[], disLikes:[]},
+    css: {Likes:[], disLikes:[]},
+    js: {Likes:[], disLikes:[]},
+    strength: {css:'',html:'',js:'' }
+  }
 }
-/////////////////////
-function getQ2bValues(){
-
-	$(".likes2:checked").each(function() {
-		userData.css.Likes.push($(this).val());
-	});
-  console.log(userData.css.Likes);
-
-  $(".dislikes2:checked").each(function() {
-		userData.css.disLikes.push($(this).val());
-	});
-  console.log(userData.css.disLikes);
-  console.log(userData.css.Likes.length);
-  console.log(userData.css.Likes);
-
-	if(userData.css.Likes.length == 0){
-		alert("Please at least check one of the checkboxs");
-    return true;
-	}
-  if(userData.css.disLikes.length == 0){
-		alert("Please at least check one of the checkboxs");
-    return true;
-	}
+function checkStoreQ2aValues(){
+  if(document.getElementById("likes1").checked && document.getElementById("dislikes1").checked){
+    $("#likes1:checked").each(function() {
+    userData.html.Likes.push($(this).val());
+  });
+  $("#dislikes1:checked").each(function() {
+    userData.html.disLikes.push($(this).val());
+  });
 }
-/////////////////////
-function getQ2cValues(){
-
-	$(".likes3:checked").each(function() {
-		userData.js.Likes.push($(this).val());
-	});
-  console.log(userData.js.Likes);
-
-  $(".dislikes3:checked").each(function() {
-		userData.js.disLikes.push($(this).val());
-	});
-  console.log(userData.js.disLikes);
-  console.log(userData.js.Likes.length);
-  console.log(userData.js.Likes);
-
-	if(userData.js.Likes.length == 0){
-		alert("Please at least check one of the checkboxs");
-    return true;
-	}
-  if(userData.js.disLikes.length == 0){
-		alert("Please at least check one of the checkboxs");
-    return true;
-	}
+  else {
+      alert("Please at least check one of the checkboxs");
+      return true;
+    }
 }
-/////////////////////
-function getQ3Values(){
-
-	$(".mark1:checked").each(function() {
+function checkStoreQ2bValues(){
+  if(document.getElementById("likes2").checked && document.getElementById("dislikes2").checked){
+    $("#likes2:checked").each(function() {
+    userData.css.Likes.push($(this).val());
+  });
+  $("#dislikes2:checked").each(function() {
+    userData.css.disLikes.push($(this).val());
+  });
+}
+  else {
+      alert("Please at least check one of the checkboxs");
+      return true;
+    }
+}
+function checkStoreQ2cValues(){
+  if(document.getElementById("likes3").checked && document.getElementById("dislikes3").checked){
+    $("#likes3:checked").each(function() {
+    userData.js.Likes.push($(this).val());
+  });
+  $("#dislikes3:checked").each(function() {
+    userData.js.disLikes.push($(this).val());
+  });
+}
+  else {
+      alert("Please at least check one of the checkboxs");
+      return true;
+    }
+}
+function checkStoreQ3Values(){
+	$(".button1:checked").each(function() {
 		userData.strength.html=($(this).val());
 	});
-  console.log(userData.strength.html);
-  $(".mark2:checked").each(function() {
+  $(".button2:checked").each(function() {
     userData.strength.css=($(this).val());
   });
-  $(".mark3:checked").each(function() {
+  $(".button3:checked").each(function() {
 		userData.strength.js=($(this).val());
 	});
 	if(userData.strength.html.length == 0){
@@ -107,32 +87,25 @@ function getQ3Values(){
     return true;
 	}
 }
-/////////////////////
-
 $('#start').click(function(){
   $('#welcome').hide();
   $('#q1').show();
-  // $('#thanks').show();
-
   userData.currentQuestion= "#q1";
   // localStorage.setItem('userData',JSON.stringify(userData));
 });
-
-
 $('#q1next').click(function(){
   userData.name= $('#name').val();
   userData.email= $('#email').val();
   // localStorage.setItem('userData',JSON.stringify(userData));
-if(!varification (userData.name,userData.email)) {
+if(!verifyNameEmail (userData.name,userData.email)) {
   $('#q2').show();
   $('#q1').hide();
   userData.currentQuestion= "#q2";
  }
 });
- //email varification
-function varification(name, email){
-  if(!name || !email){
-    alert('Please Enter Name & Email');
+function verifyNameEmail(name, email){
+    if(!name || !email){
+    alert('Please Enter Name & Email!');
     return true;
   }
   var expression = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
@@ -144,28 +117,39 @@ function varification(name, email){
 }
 function showAnswer(){
   var a = document.getElementById('ans');
-  a.innerHTML= '';
-  a.innerHTML += '<div class="well">' + '<h4>' + 'Name: '  + userData.name+ '</h4>'
-                   + '<h4>' + 'Email: '  + userData.email+ '</h4>'
+      a.innerHTML= '';
+      a.innerHTML += '<div class="well style">' + '<h4>' + 'Name: '  + userData.name+ '</h4>'
+                   + '<h4>' + 'Email: '  + userData.email+ '</h4>' + '</br>'
                    + '<h4>' + 'Likings About HTML:'    +  '</h4>'
                    + '<li>' + userData.html.Likes + '</li>'
-                    + '<h4>' + 'Disikings About HTML:'    +  '</h4>'
+                   + '<h4>' + 'Disikings About HTML:'    +  '</h4>'
                    + '<li>' + userData.html.disLikes + '</li>'
                    + '<h4>' + 'Likings About CSS:'    +  '</h4>'
                    + '<li>' + userData.css.Likes + '</li>'
-                    + '<h4>' + 'Disikings About CSS:'    +  '</h4>'
+                   + '<h4>' + 'Disikings About CSS:'    +  '</h4>'
                    + '<li>' + userData.css.disLikes + '</li>'
                    + '<h4>' + 'Likings About JAVA:'    +  '</h4>'
                    + '<li>' + userData.js.Likes + '</li>'
-                    + '<h4>' + 'Disikings About JAVA:'    +  '</h4>'
+                   + '<h4>' + 'Disikings About JAVA:'    +  '</h4>'
                    + '<li>' + userData.js.disLikes + '</li>'
                    + '<h4>' + 'Front-end Skills:'    +  '</h4>'
-                  + '<li>' + 'HTML:' + userData.strength.html + '</li>'
-                    + '<li>' + 'CSS:' + userData.strength.css + '</li>'
-                      + '<li>' + 'JS:' + userData.strength.js + '</li>'
+                   + '<li>' + 'HTML:' + userData.strength.html + '</li>'
+                   + '<li>' + 'CSS:' + userData.strength.css + '</li>'
+                   + '<li>' + 'JS:' + userData.strength.js + '</li>'
                    + '</div>';
 }
-
+function markQ2a(){
+  var l = document.getElementById('bhtml');
+  l.innerHTML= 'HTML'  + '</br>' + '<i>'+'Answered' + '</i>' ;
+}
+function markQ2b(){
+  var l = document.getElementById('bcss');
+  l.innerHTML= 'CSS'  + '</br>' + '<i>'+'Answered' + '</i>';
+}
+function markQ2c(){
+  var l = document.getElementById('bjava');
+  l.innerHTML= 'JavaScript'  + '</br>' + '<i>'+'Answered' + '</i>';
+}
  $('#bhtml').click(function(){
    $('#q2a').show();
    $('#q2').hide();
@@ -184,69 +168,93 @@ function showAnswer(){
    userData.currentQuestion= "#q2c";
   });
 
-  $('#htmlPrev').click(function(){
+$('#htmlPrev').click(function(){
     $('#q2').show();
     $('#q2a').hide();
     userData.currentQuestion= "#q2";
    });
-
   $('#htmlNext').click(function(){
-    if (!getQ2aValues()) {
+    if (!checkStoreQ2aValues()) {
+        markQ2a();
+        userData.flaghtml=true;
+        }
+    if (checkAllQ2()) {
+      $('#q3').show();
+      $('#q2a').hide();
+      userData.currentQuestion= "#q3";
+    }
+    else {
       $('#q2').show();
       $('#q2a').hide();
       userData.currentQuestion= "#q2";
-    }
-   });
-   $('#cssPrev').click(function(){
+  }
+ });
+$('#cssPrev').click(function(){
      $('#q2').show();
      $('#q2b').hide();
      userData.currentQuestion= "#q2";
     });
-
-   $('#cssNext').click(function(){
-  if (!getQ2bValues()) {
-     $('#q2').show();
-     $('#q2b').hide();
-     userData.currentQuestion= "#q2";
-   }
-    });
-
-    $('#javaPrev').click(function(){
+$('#cssNext').click(function(){
+     if (!checkStoreQ2bValues() ) {
+          markQ2b();
+          userData.flagcss=true;
+         }
+     if (checkAllQ2()) {
+       $('#q3').show();
+       $('#q2b').hide();
+       userData.currentQuestion= "#q3";
+     }
+     else {
+       $('#q2').show();
+       $('#q2b').hide();
+       userData.currentQuestion= "#q2";
+     }
+  });
+$('#javaPrev').click(function(){
       $('#q2').show();
       $('#q2c').hide();
       userData.currentQuestion= "#q2";
-
      });
-
-    $('#javaNext').click(function(){
-        if (!getQ2cValues()) {
-      $('#q3').show();
-      $('#q2c').hide();
-      userData.currentQuestion= "#q3";
-}
+     function checkAllQ2() {
+       if (userData.flaghtml && userData.flagcss && userData.flagjava) {
+          return true;
+       }
+     }
+$('#javaNext').click(function(){
+        if (!checkStoreQ2cValues() ) {
+            markQ2c();
+            userData.flagjava=true;
+            }
+        if (checkAllQ2()) {
+          $('#q3').show();
+          $('#q2c').hide();
+          userData.currentQuestion= "#q3";
+        }
+        else {
+          $('#q2').show();
+          $('#q2c').hide();
+          userData.currentQuestion= "#q2";
+        }
      });
-
-     $('#q3Prev').click(function(){
+$('#q3Prev').click(function(){
        $('#q2').show();
        $('#q3').hide();
        userData.currentQuestion= "#q2";
       });
-      $('#q3Next').click(function(){
-        if (!getQ3Values()) {
+$('#q3Next').click(function(){
+        if (!checkStoreQ3Values()) {
         $('#thanks').show();
         $('#q3').hide();
-        console.log(userData.size);
       }
         userData.currentQuestion= "#thanks";
-
        });
-       $('#ViewAns').click(function(){
+$('#ViewAns').click(function(){
          showAnswer();
          userData.currentQuestion= "#thanks";
         });
-      $('#Delete').click(function(){
+$('#Delete').click(function(){
+          emptyArray();
           $('#welcome').show();
           $('#thanks').hide();
           userData.currentQuestion= "#welcome";
-
          });
