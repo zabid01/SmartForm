@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SmartForm</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container" >
+    <!-- Welcome -->
+
+    <div class="jumbotron" id="welcome">
+      <h1>Welcome to SmartForm!</h1>
+      <p>Front-end Technology Survey</p>
+      <p><button class="btn btn-primary btn-lg" id="start">Start Survey</button></p>
+    </div>
+    <!-- Welcome END -->
+    <!-- Question 1 -->
+    <div class="row jumbotron question " id="q1">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="email" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+        <button class="btn btn-success" id="q1next">Next</button>
+      </div>
+    </div>
+    <!-- Question 1 END -->
+    <!-- Question 2 -->
+    <div class="row jumbotron question" id="q2">
+      <div class="col-sm-10 q2">
+        <h2>Choose a front-end technology</h2>
+        <button class="btn btn-lg btn-warning" id="bhtml">HTML</button>
+
+        <button class="btn btn-lg btn-danger" id="bcss">CSS</button>
+        <button class="btn btn-lg btn-info" id="bjava">JavaScript</button> <br>
+        <span id="h" style="padding-left:60px"></span>
+        <span id="c" style="padding-left:120px"></span>
+        <span id="j" style="padding-left:120px"></span>
+      </div>
+    </div>
+    <!-- Question 2 END -->
+    <!-- Question 2a -->
+    <div class="row jumbotron question" id="q2a">
+      <div class="col-sm-6">
+        <p>What do you <strong>like</strong> about HTML?</p>
+        <div class="checkbox">
+          <label>
+          <input  name="likesHTML" type="checkbox" value="Learning the basics is trivial" id="likes1"> Learning the basics is trivial
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input  name="likesHTML" type="checkbox" value="No hassle: write code in a text editor and open in Browser" id="likes1"> No hassle: write code in a text editor and open in Browser
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input  name="likesHTML" type="checkbox" value="Tags are easy to remember" id="likes1"> Tags are easy to remember
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input  name="likesHTML" type="checkbox" value="HTML5 features like canvas are powerful" id="likes1"> HTML5 features like canvas are powerful
+        </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p>What do you <strong>dislike</strong> about HTML?</p>
+        <div class="checkbox">
+          <label>
+          <input name="dlikesHTML" type="checkbox" value="Difficult to learn" id="dislikes1"> Difficult to learn
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="dlikesHTML" type="checkbox" value="Having to close tags is annoying!" id="dislikes1"> Having to close tags is annoying!
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="dlikesHTML" type="checkbox" value="Too many tags and attributes to remember" id="dislikes1"> Too many tags and attributes to remember
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="dlikesHTML" type="checkbox" value="Code looks pretty messy" id="dislikes1"> Code looks pretty messy
+        </label>
+        </div>
+        <div class="btnRight">
+          <button class="btn btn-primary" id="htmlPrev"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="htmlNext">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 2a END -->
+    <!-- Question 2b -->
+    <div class="row jumbotron question" id="q2b">
+      <div class="col-sm-6">
+        <p>What do you <strong>like</strong> about CSS?</p>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Syntax is easy to learn" id="likes2"> Syntax is easy to learn
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Can be used as an art tool" id="likes2"> Can be used as an art tool
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Enables creativity in web design" id="likes2"> Enables creativity in web design
+        </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p>What do you <strong>dislike</strong> about CSS?</p>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Difficult to learn" id="dislikes2"> Difficult to learn
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Debugging is a nightmare" id="dislikes2"> Debugging is a nightmare
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Conflicts can be very confusing" id="dislikes2"> Conflicts can be very confusing
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Code is messy" id="dislikes2"> Code is messy
+        </label>
+        </div>
+        <div class="btnRight">
+          <button class="btn btn-primary" id="cssPrev"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="cssNext">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 2b END -->
+    <!-- Question 2c -->
+    <div class="row jumbotron question" id="q2c">
+      <div class="col-sm-6">
+        <p>What do you <strong>like</strong> about JavaScript?</p>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Easy to learn" id="likes3"> Easy to learn
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Multple programming styles supported" id="likes3"> Multple programming styles supported
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Just code and run easily in the browser" id="likes3"> Just code and run easily in the browser
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Huge growing community and plenty of resources online" id="likes3"> Huge growing community and plenty of resources online
+        </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p>What do you <strong>dislike</strong> about JavaScript?</p>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Difficult to learn" id="dislikes3"> Difficult to learn
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Multple programming paradigms supported (too many options)" id="dislikes3"> Multple programming paradigms supported (too many options)
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="Easy to right messy code" id="dislikes3"> Easy to right messy code
+        </label>
+        </div>
+        <div class="checkbox">
+          <label>
+          <input name="likesHTML" type="checkbox" value="No multi threading" id="dislikes3"> No multi threading
+        </label>
+        </div>
+        <div class="btnRight">
+          <button class="btn btn-primary" id="javaPrev"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="javaNext">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 2c END -->
+    <!-- Question 3 -->
+    <div class="row jumbotron question" id="q3">
+      <h4>Estimate your front-end skills</h4>
+  <div class="col-sm-4" id="html">
+    <span>HTML Strength</span>
+    <label class="radio">
+      <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="Weak" class="button1"> Weak
+    </label>
+    <label class="radio">
+      <input type="radio" name="inlineRadioOptions1" id="inlineRadio2" value="Average" class="button1"> Average
+    </label>
+    <label class="radio">
+      <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="Good" class="button1"> Good
+    </label>
+    <label class="radio">
+      <input type="radio" name="inlineRadioOptions1" id="inlineRadio3" value="Expert" class="button1"> Expert
+    </label>
+  </div>
+      <div class="col-sm-4" id="css">
+        <span>CSS Strength</span>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="Weak" class="button2"> Weak
+        </label>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="Average" class="button2"> Average
+        </label>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="Good" class="button2"> Good
+        </label>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="Expert" class="button2"> Expert
+        </label>
+      </div>
+      <div class="col-sm-4" id="java">
+        <span>JavaScript Strength</span>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio1" value="Weak" class="button3"> Weak
+        </label>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio2" value="Average" class="button3"> Average
+        </label>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="Good" class="button3"> Good
+        </label>
+        <label class="radio">
+          <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="Expert" class="button3"> Expert
+        </label>
+        <div class="btnRight">
+          <button class="btn btn-primary" id="q3Prev"><span class="glyphicon glyphicon-chevron-left"></span> Previous</button>
+          <button class="btn btn-success" id="q3Next">Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 3 END -->
+    <!-- Thank you -->
+    <div class="jumbotron question" id="thanks">
+      <h1>Thank You!</h1>
+      <p>Your Front-end Technology Survey answers were submitted successfully.</p>
+      <p><button class="btn btn-default btn-lg" id="ViewAns">View Answers</button>
+    </div>
+    <div class="jumbotron question" id="ViewAnswer">
+      <h1>Your Answers</h1>
+      <p>Front-end Technology Survey</p>
+      <button class="btn btn-default btn-lg" id="Delete">Start New Survey</button></p>
+      <div id="ans"> </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="vendor/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="smartForm.js"></script>
+</body>
+
+</html>
