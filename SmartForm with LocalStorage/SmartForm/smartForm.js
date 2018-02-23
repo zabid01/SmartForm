@@ -11,7 +11,7 @@ var userData = {
   flagcss:'',
   flagjava:'',
   currentQuestion:'#welcome'
-  // now:
+
 };
 function emptyArray(){
   userData = {
@@ -23,17 +23,17 @@ function emptyArray(){
     strength: {css:'',html:'',js:'' }
   }
 }
+window.addEventListener("load",loadpage,false);
 function loadpage() {
   var page= JSON.parse(localStorage.getItem('userData'));
-  console.log(page.currentQuestion);
-
   var p=page.currentQuestion;
   if(p!='#welcome'){
     $('#welcome').hide();
     $(page.currentQuestion).show();
   }
 }
-window.addEventListener("load",loadpage,false);
+  
+
 function checkStoreQ2aValues(){
     $("#likes1:checked").each(function() {
     userData.html.Likes.push($(this).val());
@@ -109,7 +109,7 @@ $('#start').click(function(){
   $('#welcome').hide();
   $('#q1').show();
   userData.currentQuestion= "#q1";
-  // localStorage.setItem('userData',JSON.stringify(userData));
+  localStorage.setItem('userData',JSON.stringify(userData));
 });
 $('#q1next').click(function(){
   userData.name= $('#name').val();
@@ -119,6 +119,7 @@ if(!verifyNameEmail (userData.name,userData.email)) {
   $('#q2').show();
   $('#q1').hide();
   userData.currentQuestion= "#q2";
+  localStorage.setItem('userData',JSON.stringify(userData));
  }
 });
 function verifyNameEmail(name, email){
@@ -180,7 +181,6 @@ function markQ2c(){
    $('#q2').hide();
    userData.currentQuestion= "#q2a";
    localStorage.setItem('userData',JSON.stringify(userData));
-
   });
 
  $('#bcss').click(function(){
@@ -277,12 +277,14 @@ $('#q3Prev').click(function(){
        $('#q2').show();
        $('#q3').hide();
        userData.currentQuestion= "#q2";
+       localStorage.setItem('userData',JSON.stringify(userData));
       });
 $('#q3Next').click(function(){
         if (!checkStoreQ3Values()) {
         $('#thanks').show();
         $('#q3').hide();
         userData.currentQuestion= "#thanks";
+        localStorage.setItem('userData',JSON.stringify(userData));
       }
        });
 $('#ViewAns').click(function(){
@@ -290,6 +292,7 @@ $('#ViewAns').click(function(){
         $('#thanks').hide();
          showAnswer();
          userData.currentQuestion= "#ViewAnswer";
+         localStorage.setItem('userData',JSON.stringify(userData));
         });
 $('#Delete').click(function(){
           emptyArray();
@@ -298,4 +301,5 @@ $('#Delete').click(function(){
           $('#welcome').show();
           $('#thanks').hide();
           userData.currentQuestion= "#welcome";
+          localStorage.setItem('userData',JSON.stringify(userData));
          });
