@@ -1,5 +1,9 @@
 // Your jQuery goes here
 
+var a= [1,2,,4,5,null];
+console.log(a[4], a[0], a[2], a[5], a[6]);
+
+
 var userData = {
   name:'',
   email:'',
@@ -32,7 +36,7 @@ function loadpage() {
     $(page.currentQuestion).show();
   }
 }
-  
+
 
 function checkStoreQ2aValues(){
     $("#likes1:checked").each(function() {
